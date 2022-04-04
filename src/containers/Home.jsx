@@ -1,17 +1,18 @@
 import styled from 'styled-components';
+import Controller from '../components/Controller';
 
 
-const Posts = () => {
+const Home = () => {
     return (
         <Wrapper>
-             <Container>
-
-</Container>
+            <Container>
+                <Controller/>
+            </Container>
         </Wrapper>
     );
 }
 
-export default Posts;
+export default Home;
 const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
