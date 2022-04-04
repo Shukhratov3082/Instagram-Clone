@@ -1,14 +1,19 @@
-import styled from "styled-components";
+import { Route, Routes } from "react-router-dom";
+import Login from "./containers/Login";
+import Posts from "./containers/Posts";
+import Signup from "./containers/Signup";
 
 
 function App() {
   return (
-    <Wrapper>
-<h1>hi</h1>np
-    </Wrapper>
+    <Routes>
+      <Route path="/SignUp" element={<Signup/>}/>
+      <Route path="/Login" element={<Login/>}/>
+      <Route path="/" element={<Posts/>}/>
+    </Routes>
 
   );
 }
 
 export default App;
-const Wrapper = styled.div``
+
