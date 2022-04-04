@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 
-const Login = () => {
+const Signup = () => {
     return (
         <Wrapper>
-            
+            <div className='container'>
+
+            </div>
         </Wrapper>
     );
 }
 
-export default Login;
+export default Signup;
 const Wrapper = styled.div`
+
 `
