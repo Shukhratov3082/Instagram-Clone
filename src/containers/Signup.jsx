@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import InstagramIcon from '../assets/Instagram Logo.svg'
 import Avatar from '../assets/avatar1.png'
+import { Link } from 'react-router-dom';
+
 const Signup = () => {
     return (
         <Wrapper>
@@ -8,10 +10,14 @@ const Signup = () => {
                 <img className='instagram' src={InstagramIcon} alt="" />
                 <img src={Avatar} alt="" />
                 <span>jacob_w</span>
-                <button>Login</button>
-                <span className="Switch">Switch accounts</span>
+                <Link to="/login">
+                    <button>Login</button>
+                </Link>
+                <Link to="/login">
+                    <span className="Switch">Switch accounts</span>
+                </Link>
                 <div>
-                <p>Don’t have an account? <span>Sign up.</span></p>
+                    <p>Don't have an account? <span>Sign up.</span></p>
                 </div>
             </Container>
         </Wrapper>
