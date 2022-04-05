@@ -6,7 +6,6 @@ import search from '../assets/search-icon.svg';
 
 const Search = () => {
     return (
-        <Wrapper>
             <Container>
                 <SearchContainer>
                     <div className="input-container">
@@ -26,20 +25,13 @@ const Search = () => {
                 <Content />
                 <Controller />
             </Container>
-        </Wrapper>
+    
     );
 }
 
 export default Search;
 
-const Wrapper = styled.div`
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: whitesmoke;
-`;
+
 
 const Container = styled.div`
     width: 375px;

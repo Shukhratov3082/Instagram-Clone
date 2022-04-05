@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Signup = () => {
     return (
-        <Wrapper>
             <Container>
                 <img className='instagram' src={InstagramIcon} alt="" />
                 <img src={Avatar} alt="" />
@@ -20,20 +19,11 @@ const Signup = () => {
                     <p>Don't have an account? <span>Sign up.</span></p>
                 </div>
             </Container>
-        </Wrapper>
     );
 }
 
 export default Signup;
-const Wrapper = styled.div`
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: whitesmoke;
 
-`
 const Container = styled.div`
     width: 375px;
     height: 812px;

@@ -1,70 +1,49 @@
 import styled from 'styled-components';
-import { ReactComponent as Home } from '../assets/Home.svg'
-import { ReactComponent as Like } from '../assets/Like.svg'
+// import  HomeDark  from '../assets/HomeDark.svg'
+import HomeWhite from '../assets/HomeWhite.svg'
+import Like from '../assets/Like.svg'
 import Profile from '../assets/Profile.png'
-import { ReactComponent as Search } from '../assets/Search.svg'
-import { ReactComponent as Create } from '../assets/Create.svg'
+import Search from '../assets/Search.svg'
+import Create from '../assets/Create.svg'
 import { NavLink } from 'react-router-dom';
 
 const Controller = () => {
     const Images = [
-        { to: "/home", img: <Home /> },
-        { to: "/search", img: <Search /> },
-        { to: "/create", img: <Create /> },
-        { to: "/like", img: <Like /> }
+
+        { to: "/home", img: HomeWhite },
+        { to: "/search", img: Search },
+        { to: "/create", img: Create },
+        { to: "/like", img: Like },
+        { to: "/profile", img: Profile }
     ]
+ 
     return (
-        <Wrapper>
-
-            {Images.map(({ to, img }) => <div>
-                <NavLink to={to}>
-                    {img}
-                </NavLink>
-            </div>)}
-
-            <div className='profile'>
-                <img src={Profile} alt="" />
-            </div>
-
-        </Wrapper>
+            <Menu>
+                {Images.map(({ to, img }) => <div>
+                    <NavLink to={to}>
+                        <img src={img} alt="" />
+                    </NavLink>
+                </div>)}
+            </Menu>
     );
 }
 
 export default Controller;
-const Wrapper = styled.div`
+
+
+const Menu = styled.div`
     width: 100%;
     height: 79px;
     display: grid;
     grid-template-columns: repeat(5,75px);
+    border-top: 1px solid #a1a1a1cd;
+    
     div{
         width: 75px;
         height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-
-        .profile{
-        border: 2px solid white;
-        border-radius: 30px;
-        padding: 3px;
-        height: 32px;
-        
-        &:active{
-        border: 2px solid black;
-
-        }
-
-    }
- 
-    a{
-        &:active{   
-            svg path{
-                fill: red;
-            }
-        }
-    }
-
-    }
-
-   
+}
+    
 `
