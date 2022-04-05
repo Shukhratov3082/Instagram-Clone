@@ -8,7 +8,9 @@ const Login = () => {
     return (
         <Wrapper>
             <Container>
-                <img className='vektor' src={vektor} alt="" />
+                <Link to="/">
+                    <img className='vektor' src={vektor} alt="" />
+                </Link>
                 <img className='logo' src={logo} alt="" />
                 <div className="input-container">
                     <input placeholder='Login' className='text-input' type="text" />

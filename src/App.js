@@ -6,6 +6,7 @@ import Search from "./containers/Search";
 import Like from "./containers/Like";
 import Signup from "./containers/SignUp.jsx";
 import Createpost from "./containers/CreatePost";
+import Profile from "./containers/Profile";
 // import { useEffect } from "react";
 
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/search" element={<Search />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/create" element={<Createpost />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
 
   );
