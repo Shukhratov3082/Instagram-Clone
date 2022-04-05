@@ -8,24 +8,24 @@ import { NavLink } from 'react-router-dom';
 
 const Controller = () => {
     const Images = [
-        { to: "/", img: <Home /> },
+        { to: "/home", img: <Home /> },
         { to: "/search", img: <Search /> },
         { to: "/create", img: <Create /> },
         { to: "/like", img: <Like /> }
     ]
     return (
         <Wrapper>
-      
-         {Images.map(({ to, img }) => <div>
-         <NavLink to={to}>
-                {img}
-            </NavLink>
-         </div>)}
-            
-           <div className='profile'>
-           <img src={Profile} alt="" />
-           </div>
-   
+
+            {Images.map(({ to, img }) => <div>
+                <NavLink to={to}>
+                    {img}
+                </NavLink>
+            </div>)}
+
+            <div className='profile'>
+                <img src={Profile} alt="" />
+            </div>
+
         </Wrapper>
     );
 }
@@ -48,6 +48,7 @@ const Wrapper = styled.div`
         border-radius: 30px;
         padding: 3px;
         height: 32px;
+        
         &:active{
         border: 2px solid black;
 

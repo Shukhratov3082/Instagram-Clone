@@ -55,6 +55,7 @@ const Container = styled.div`
     position: relative;
 
     .vektor {
+        cursor: pointer;
         position: absolute;
         top: 24px;
         left: 16px;
