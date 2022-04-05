@@ -1,24 +1,28 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, } from "react-router-dom";
 import Login from "./containers/Login";
-import Signup from "./containers/Signup";
+import Join from "./containers/Join";
 import Home from "./containers/Home";
 import Search from "./containers/Search";
 import Like from "./containers/Like";
-import { useEffect } from "react";
+import Signup from "./containers/SignUp.jsx";
+import Createpost from "./containers/CreatePost";
+// import { useEffect } from "react";
 
 
 function App() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate('/home')
-  }, [navigate]);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   navigate('/home')
+  // }, [navigate]);
   return (
     <Routes>
-      <Route path="/" element={<Signup />} />
+      <Route path="/" element={<Join />} />
       <Route path="/login" element={<Login />} />
       <Route path="/like" element={<Like />} />
       <Route path="/home" element={<Home />} />
       <Route path="/search" element={<Search />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/create" element={<Createpost />} />
     </Routes>
 
   );

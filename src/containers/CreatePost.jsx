@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Signup = () => {
+const Createpost = () => {
     return (
         <Wrapper>
             <Container>
@@ -11,7 +11,7 @@ const Signup = () => {
     );
 }
 
-export default Signup;
+export default Createpost;
 
 const Wrapper = styled.div`
     width: 100%;

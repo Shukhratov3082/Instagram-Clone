@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import vektor from '../assets/vektor.svg'
 import logo from '../assets/Instagram Logo.svg'
 import facebook from '../assets/facebook.svg'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -16,7 +17,9 @@ const Login = () => {
                 <div className="forget-container">
                     <span>Forgot password?</span>
                 </div>
-                <Button>Log in</Button>
+                <Link to="/home">
+                    <Button>Log in</Button>
+                </Link>
                 <div className="facebook-container">
                     <img src={facebook} alt="" />
                     <span>Log in with Facebook</span>
@@ -27,7 +30,7 @@ const Login = () => {
                     <div className="line"></div>
                 </div>
                 <div className="qeustion-container">
-                    <p>Don't have an account? <span>Sign up.</span></p>
+                    <p>Don't have an account?<Link className='link' to="/signup"><span> Sign up.</span></Link></p>
                 </div>
                 <div className="meta-container">
                     <span>Instagram from Meta</span>
@@ -192,6 +195,10 @@ const Container = styled.div`
             letter-spacing: -0.01px;
             color: rgba(0, 0, 0, 0.4);
         }
+    }
+
+    .link {
+        text-decoration: none;
     }
     
 `
