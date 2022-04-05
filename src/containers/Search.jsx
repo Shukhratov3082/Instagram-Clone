@@ -6,26 +6,26 @@ import search from '../assets/search-icon.svg';
 
 const Search = () => {
     return (
-            <Container>
-                <SearchContainer>
-                    <div className="input-container">
-                        <img className='search-icon' src={search} alt="" />
-                        <input placeholder='Search' type="text" />
-                        <img className='qr' src={qr} alt="" />
-                    </div>
-                    <div className="menues">
-                        <div className="menu">IGTV</div>
-                        <div className="menu">Shop</div>
-                        <div className="menu">Style</div>
-                        <div className="menu">Sports</div>
-                        <div className="menu">Auto</div>
-                        <div className="menu">Music</div>
-                    </div>
-                </SearchContainer>
-                <Content />
-                <Controller />
-            </Container>
-    
+        <Container>
+            <SearchContainer>
+                <div className="input-container">
+                    <img className='search-icon' src={search} alt="" />
+                    <input placeholder='Search' type="text" />
+                    <img className='qr' src={qr} alt="" />
+                </div>
+                <div className="menues">
+                    <div className="menu">IGTV</div>
+                    <div className="menu">Shop</div>
+                    <div className="menu">Style</div>
+                    <div className="menu">Sports</div>
+                    <div className="menu">Auto</div>
+                    <div className="menu">Music</div>
+                </div>
+            </SearchContainer>
+            <Content />
+            <Controller />
+        </Container>
+
     );
 }
 

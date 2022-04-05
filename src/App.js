@@ -7,6 +7,7 @@ import Like from "./containers/Like";
 import Signup from "./containers/SignUp.jsx";
 import Createpost from "./containers/CreatePost";
 import Profile from "./containers/Profile";
+import EditProfile from "./containers/EditProfile";
 // import { useEffect } from "react";
 
 
@@ -25,6 +26,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/create" element={<Createpost />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/editprofile" element={<EditProfile />} />
     </Routes>
 
   );

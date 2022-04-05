@@ -31,7 +31,7 @@ const Home = () => {
     ]
     return (
         <Wrapper>
-                  <header>
+            <header>
                 <img className='camera' src={Camera} alt="" />
                 <img className='instagram' width='120px' height='50px' src={Instagram} alt="" />
                 <div>
@@ -68,13 +68,13 @@ const Home = () => {
                         </div>
                     </div>
                     <div className='bottom'>
-                       <img width='17px' height='17px' src={Profile} alt="" /> <span>Liked by craig_love and 44,686 others</span>
+                        <img width='17px' height='17px' src={Profile} alt="" /> <span>Liked by craig_love and 44,686 others</span>
                         <p>joshua_l The game in Japan was amazing and I want to share some photos</p>
                     </div>
                 </div>
             </div>
 
-               <Controller/>
+            <Controller />
         </Wrapper>
     );
 }
