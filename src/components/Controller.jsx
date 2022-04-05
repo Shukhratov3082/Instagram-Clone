@@ -1,30 +1,32 @@
 import styled from 'styled-components';
-import { ReactComponent as Home } from '../assets/Home.svg'
-import { ReactComponent as Like } from '../assets/Like.svg'
+import  HomeDark  from '../assets/HomeDark.svg'
+// import  HomeWhite  from '../assets/HomeWhite.svg'
+import  Like  from '../assets/Like.svg'
 import Profile from '../assets/Profile.png'
-import { ReactComponent as Search } from '../assets/Search.svg'
-import { ReactComponent as Create } from '../assets/Create.svg'
+import  Search  from '../assets/Search.svg'
+import Create  from '../assets/Create.svg'
 import { NavLink } from 'react-router-dom';
 
 const Controller = () => {
     const Images = [
-        { to: "/", img: <Home /> },
-        { to: "/search", img: <Search /> },
-        { to: "/create", img: <Create /> },
-        { to: "/like", img: <Like /> }
+        { to: "/", img: HomeDark },
+        { to: "/search", img: Search },
+        { to: "/create", img: Create  },
+        { to: "/like", img: Like },
+        { to: "/profile", img: Profile }
     ]
     return (
         <Wrapper>
       
          {Images.map(({ to, img }) => <div>
          <NavLink to={to}>
-                {img}
+                <img src={img} alt="" />
             </NavLink>
          </div>)}
-            
+{/*             
            <div className='profile'>
-           <img src={Profile} alt="" />
-           </div>
+           <img src={} alt="" />
+           </div> */}
    
         </Wrapper>
     );
@@ -56,10 +58,10 @@ const Wrapper = styled.div`
     }
  
     a{
-        &:active{   
-            svg path{
-                fill: red;
-            }
+        
+        &:hover{   
+            /* background-image:url(${HomeWhite}); */
+            
         }
     }
 
