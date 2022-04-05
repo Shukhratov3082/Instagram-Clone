@@ -1,38 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
-import Controller from '../components/Controller'
+import React, { useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import styled from 'styled-components'
+import Following from '../components/Following';
+import You from '../components/You';
 
 const Like = () => {
+    const navigate = useNavigate()
+    useEffect(() => { navigate('/like/you') }, [navigate])
     return (
-        <Wrapper>
-            <header>
-                <div>Following</div>
-                <div>You</div>
-            </header>
-            <Controller/>
-        </Wrapper>
+            <Routes>
+                <Route path='/like/following' element={<Following />} />
+                <Route path='/like/you' element={<You />} />
+            </Routes>
     );
 }
 
 export default Like;
-const Wrapper = styled.div`
-    width: 375px;
-    height: 812px;
-    background-color: white;
-    header{
-        display: flex;
-        height: 88px;
-        padding: 44px 8px 0 8px;
-        border-bottom: 1px solid #c7c3c3e3;
-        div{
-            width: 180px;
-            height: 44px;
-            text-align: center;
-            &:active{
-             border-bottom: 1px solid black;
-                
-            }
-        }
-    }
 
-`

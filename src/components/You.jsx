@@ -12,7 +12,7 @@ import image3 from '../assets/Like/image3.png'
 import Like from '../assets/Like/like.svg'
 import { Link } from 'react-router-dom';
 import Controller from './Controller';
-const Following = () => {
+const You = () => {
     return (
         <Wrapper>
 
@@ -25,78 +25,75 @@ const Following = () => {
                 </div>
             </header>
 
-         <div className='obshiy'>
-         <div className='Follow-request'>
-                <p>Follow </p>
-            </div>
-            <div className='New'>
-                <h4>New</h4>
-                <div>
-                    <img src={Profile1} alt="" />
-                    <p>karennne liked your photo. <span>1h</span></p>
-                    <img src={image1} alt="" />
+            <div className='obshiy'>
+                <div className='Follow-request'>
+                    <p>Follow Requests</p>
                 </div>
-            </div>
-            <div className='Today'>
-                <h4>Today</h4>
-                <div>
-                    <img src={Profile2} alt="" />
-                    <p>kiero_d, zackjohn and 26 others <br /> liked your photo.  <span>3h</span></p>
-                    <img src={image2} alt="" />
-                </div>
-            </div>
-            <div className='This-week'>
-                <h4>This Week</h4>
-                <div className='craig-love'>
-                    <img src={Profile3} alt="" />
-                    <p> <b>craig_love </b> mentioned you in a comment: <span>@jacob_w </span> exactly..<br /> 2<span className='gray'>d</span></p>
-                    <img src={image3} alt="" />
+                <div className='New'>
+                    <h4>New</h4>
                     <div>
-                        <img src={Like} alt="" /><span>Reply</span>
+                        <img src={Profile1} alt="" />
+                        <p>karennne liked your photo. <span>1h</span></p>
+                        <img src={image1} alt="" />
                     </div>
                 </div>
-                <div className='Profiles'>
+                <div className='Today'>
+                    <h4>Today</h4>
+                    <div>
+                        <img src={Profile2} alt="" />
+                        <p>kiero_d, zackjohn and 26 others <br /> liked your photo.  <span>3h</span></p>
+                        <img src={image2} alt="" />
+                    </div>
+                </div>
+                <div className='This-week'>
+                    <h4>This Week</h4>
+                    <div className='craig-love'>
+                        <img src={Profile3} alt="" />
+                        <p> <b>craig_love </b> mentioned you in a comment: <span>@jacob_w </span> exactly..<br /> 2<span className='gray'>d</span></p>
+                        <img src={image3} alt="" />
+                        <div>
+                            <img src={Like} alt="" /><span>Reply</span>
+                        </div>
+                    </div>
+                    <div className='Profiles'>
+                        <div>
+                            <img src={Profile4} alt="" />
+                            <p> <b>martini_rond </b> started <br /> following you.<span>3d</span></p>
+                            <button className='message'>Message</button>
+                        </div>
+                        <div>
+                            <img src={Profile5} alt="" />
+                            <p> <b>maxjacobson</b> zackjohn and 26 others <br /> liked your photo.  <span>3d</span></p>
+                            <button className='message'>Message</button>
+                        </div>
+                        <div>
+                            <img src={Profile6} alt="" />
+                            <p><b>mis_potter</b> started following <br /> you. <span>3h</span></p>
+                            <button className='follow'>Follow</button>
+                        </div>
+                    </div>
+                </div>
+                <div className='thisMonth'>
+                    <h4>
+                        This Month
+                    </h4>
                     <div>
                         <img src={Profile4} alt="" />
-                        <p> <b>martini_rond </b> started <br /> following you.<span>3d</span></p>
-                        <button className='message'>Message</button>
-                    </div>
-                    <div>
-                        <img src={Profile5} alt="" />
-                        <p> <b>maxjacobson</b> zackjohn and 26 others <br /> liked your photo.  <span>3d</span></p>
-                        <button className='message'>Message</button>
-                    </div>
-                    <div>
-                        <img src={Profile6} alt="" />
-                        <p><b>mis_potter</b> started following <br /> you. <span>3h</span></p>
-                        <button className='follow'>Follow</button>
+                        <p>mis_potter started following  you.3h</p>
                     </div>
                 </div>
             </div>
-            {/* <div className='thisMonth'>
-                <h4>
-                    This Month
-                </h4>
-                <div>
-                    <img src={Profile4} alt="" />
-                    <p>mis_potter started following  you.3h</p>
-                </div>
-            </div> */}
-
-         </div>
-         <Controller/>
-
+            <Controller />
         </Wrapper>
 
     );
 }
 
-export default Following;
+export default You;
 const Wrapper = styled.div`
-    width: 375px;
+   width: 375px;
     height: 812px;
     background-color: white;
-
     header{
         display: flex;
         height: 88px;
@@ -117,14 +114,15 @@ const Wrapper = styled.div`
         }
     }
     .obshiy{
-    height: 640px;
+        height: 640px;
         overflow: hidden;
 
 .Follow-request,.New,.Today,.This-week{ border-bottom: 1px solid #c7c3c3e3;}
- 
-     .Follow-request{
+    
+    .Follow-request{
          height: 48px;
-         padding: 14px 16px;        
+         padding: 14px 16px;
+        
      }
      .New,.Today{
         height: 106px;
@@ -241,6 +239,6 @@ const Wrapper = styled.div`
                   p{font-size: 13px;}
             }
         }
-    }
+    }  
 `
 
