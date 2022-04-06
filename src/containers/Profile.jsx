@@ -2,12 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Controller from '../components/Controller';
+import Burger from '../components/Burger';
 
 const Profile = () => {
     return (
         <Wrapper>
             <Container>
-                <div className="menu-bar"></div>
+                <div className="menu-bar">
+                    <span className='nik'>jacob_w</span>
+                    <Burger />
+                </div>
                 <Content>
                     <Link to="/editprofile">
                         <button className='btn'>Edit Profile</button>
@@ -35,6 +39,7 @@ const Content = styled.div`
     padding: 0 16px;
     
     .btn {
+        margin-top: 100px;
         height: 29px;
         width: 100%;
         background: #FFFFFF;
@@ -54,9 +59,30 @@ const Container = styled.div`
     width: 375px;
     height: auto;
     background-color: white;
+    position: relative;
 
     .menu-bar {
         height: 56px;
         width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding: 20px 29px 0 29px;
+    }
+
+    .nik {
+        margin-right: 100px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 21px;
+        letter-spacing: -0.33px;
+        color: #262626;
+
+    }
+
+    .burger {
+        width: 20px;
+        cursor: pointer;
     }
 `;

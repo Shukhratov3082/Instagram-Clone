@@ -4,7 +4,7 @@ import Join from "./containers/Join";
 import Home from "./containers/Home";
 import Search from "./containers/Search";
 import Like from "./containers/Like";
-import Signup from "./containers/Signup";
+import Signup from "./containers/SignUp";
 import Createpost from "./containers/CreatePost";
 import Profile from "./containers/Profile";
 import EditProfile from "./containers/EditProfile";
@@ -29,8 +29,8 @@ function App() {
       <Route path="/create" element={<Createpost />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/editprofile" element={<EditProfile />} />
-      <Route path='/like/following' element={<Following/>}/>
-      <Route path='/like/you' element={<You/>}/>
+      <Route path='/like/following' element={<Following />} />
+      <Route path='/like/you' element={<You />} />
     </Routes>
 
   );

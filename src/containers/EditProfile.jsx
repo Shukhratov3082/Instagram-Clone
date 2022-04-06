@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import avatar from '../assets/avatar1.png'
 
 const EditProfile = () => {
     return (
@@ -10,6 +11,18 @@ const EditProfile = () => {
                     <span className='edit'>Edit Profile</span>
                     <span className='done'>Done</span>
                 </div>
+                <div className="profile-photo">
+                    <div>
+                        <img src={avatar} alt="" />
+                        <span>Change Profile Photo</span>
+                    </div>
+                </div>
+                <form>
+                    <div className="form-box">
+                        <span>Name</span>
+                        <input type="text" placeholder='Name' />
+                    </div>
+                </form>
             </Container>
         </Wrapper>
     );
@@ -63,6 +76,49 @@ const Container = styled.div`
             text-align: right;
             color: #3897F0;
 
+        }
+    }
+
+    .profile-photo {
+        width: 100%;
+        height: 375px;
+        padding: 18px 0 13px 0;
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 95px;
+            height: 95px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        span {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 21px; 
+            text-align: center;
+            letter-spacing: -0.05px;
+            color: #3897F0;
+            display: block;
+            margin-top: 12px;
+        }
+    }
+
+    form {
+        height: 400px;
+        width: 100%;
+        display: flex;
+        gap: 40px;
+
+        span {
+            padding: 15px;
+        }
+
+        input {
+            padding: 14px 16px;
+            
         }
     }
 `;
