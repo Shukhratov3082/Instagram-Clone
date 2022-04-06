@@ -10,19 +10,19 @@ import image1 from '../assets/Like/image1.png'
 import image2 from '../assets/Like/image2.png'
 import image3 from '../assets/Like/image3.png'
 import Like from '../assets/Like/like.svg'
-import { Link } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import Controller from './Controller';
 const You = () => {
     return (
         <Wrapper>
 
             <header>
-                <div>
-                    <Link to={'/like/following'}>Following</Link>
-                </div>
-                <div>
-                    <Link to={'/like/you'}>You</Link>
-                </div>
+                <NavLink to={'/like/following'}>
+                    <p>Following</p>
+                </NavLink>
+                <NavLink to={'/like/you'}>
+                    <p>You</p>
+                </NavLink>
             </header>
 
             <div className='obshiy'>
@@ -99,23 +99,24 @@ const Wrapper = styled.div`
         height: 88px;
         padding: 44px 8px 0 8px;
         border-bottom: 1px solid #c7c3c3e3;
-        div{
+        a{
             width: 180px;
             height: 44px;
             text-align: center;
-            a{
-                text-decoration: none;
-                color: black;
-            }
-            &:active{
-             border-bottom: 1px solid black;
-                
-            }
+            text-decoration: none;
+            color: black;
+            &.active{
+                    border-bottom: 2px solid black;
+                }
+          
         }
     }
     .obshiy{
         height: 640px;
-        overflow: hidden;
+        overflow: auto;
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
 
 .Follow-request,.New,.Today,.This-week{ border-bottom: 1px solid #c7c3c3e3;}
     
@@ -144,13 +145,7 @@ const Wrapper = styled.div`
       
      }
    
-     .New div{
-            display: grid;
-            grid-template-columns: 44px 230px 1fr;
-            align-items:center;
-            gap: 12px;
-            
-            p{
+     .New  p{
                 font-size: 13px;
 
                 b{font-size: 14px;}
@@ -158,7 +153,6 @@ const Wrapper = styled.div`
                 span{color: #a8a7a7;}
                
             }
-        }
      
      .This-week{
         height: 332px;
