@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import styled from 'styled-components'
 import Following from '../components/Following';
 import You from '../components/You';
 
