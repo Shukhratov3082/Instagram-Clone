@@ -1,8 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
 import InstagramIcon from '../assets/Instagram Logo.svg'
 
 const Signup = () => {
+
     return (
         <Wrapper>
             <Container>
@@ -19,8 +19,8 @@ const Signup = () => {
                     <input placeholder='Full Name' type="text" />
                     <input placeholder='Username' type="text" />
                     <input placeholder='Password' type="password" />
+                    <button>Sign Up</button>
                 </form>
-                <button>Sign Up</button>
                 <span className='cookie-text'>By signing up, you agree to our Terms , Data Policy and Cookies Policy .</span>
             </Container>
         </Wrapper>
