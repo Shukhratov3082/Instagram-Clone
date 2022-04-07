@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import  HomeDark  from '../assets/HomeDark.svg'
 import HomeWhite from '../assets/HomeWhite.svg'
 import Like from '../assets/Like.svg'
 import Profile from '../assets/Profile.png'
@@ -9,22 +8,21 @@ import { NavLink } from 'react-router-dom';
 
 const Controller = () => {
     const Images = [
-
         { to: "/home", img: HomeWhite },
         { to: "/search", img: Search },
         { to: "/create", img: Create },
         { to: "/like", img: Like },
         { to: "/profile", img: Profile }
     ]
- 
+
     return (
-            <Menu>
-                {Images.map(({ to, img }) => <div>
-                    <NavLink to={to}>
-                        <img src={img} alt="" />
-                    </NavLink>
-                </div>)}
-            </Menu>
+        <Menu>
+            {Images.map(({ to, img }) => <div key={Math.random()}>
+                <NavLink to={to}>
+                    <img src={img} alt="" />
+                </NavLink>
+            </div>)}
+        </Menu>
     );
 }
 

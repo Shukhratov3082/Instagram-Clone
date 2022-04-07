@@ -1,31 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import InstagramIcon from '../assets/Instagram Logo.svg'
-import API from '../utils/axios';
 
 const Signup = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [fullname, setFullname] = useState("");
-
-    const submit = () => {
-
-        const reqBody = {
-            fullName: fullname,
-            username: username,
-            password: password,
-            website: "website.com",
-            bio: "Biography",
-            email: email,
-            phone: "998991112223",
-            birthDate: "1999-09-09",
-            gender: "MALE"
-        }
-
-        API.post("/uth/registration", reqBody).then(res => localStorage.setItem("user-token".res.data.token))
-    }
-
     return (
         <Wrapper>
             <Container>
@@ -38,12 +15,12 @@ const Signup = () => {
                     <div className="line"></div>
                 </div>
                 <form>
-                    <input onChange={({ target }) => setEmail(target.value)} placeholder='Email' type="text" />
-                    <input onChange={({ target }) => setFullname(target.value)} placeholder='Full Name' type="text" />
-                    <input onChange={({ target }) => setUsername(target.value)} placeholder='Username' type="text" />
-                    <input onChange={({ target }) => setPassword(target.value)} placeholder='Password' type="password" />
-                    <button onClick={submit}>Sign Up</button>
+                    <input placeholder='Email' type="text" />
+                    <input placeholder='Full Name' type="text" />
+                    <input placeholder='Username' type="text" />
+                    <input placeholder='Password' type="password" />
                 </form>
+                <button>Sign Up</button>
                 <span className='cookie-text'>By signing up, you agree to our Terms , Data Policy and Cookies Policy .</span>
             </Container>
         </Wrapper>
@@ -159,7 +136,7 @@ const Container = styled.div`
         text-align: center;
         
         color: rgba(var(--f52,142,142,142),1);
-        font-size: 15px;
+        font-size: 10px;
         font-weight: 600;
         line-height: 20px;
         margin-bottom: 10px;

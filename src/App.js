@@ -4,7 +4,7 @@ import Join from "./containers/Join";
 import Home from "./containers/Home";
 import Search from "./containers/Search";
 import Like from "./containers/Like";
-import Signup from "./containers/SignUp";
+import Signup from "./containers/Signup";
 import Createpost from "./containers/CreatePost";
 import Profile from "./containers/Profile";
 import EditProfile from "./containers/EditProfile";
