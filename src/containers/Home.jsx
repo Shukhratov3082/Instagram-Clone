@@ -39,7 +39,7 @@ const Home = () => {
                 </div>
             </header>
             <div className='Users'>
-                {Users.map(({ img, text }) => <div>
+                {Users.map(({ img, text }) => <div key={Math.random()}>
                     <img width='62px' height='62px' src={img} alt="" />
                     <p>{text}</p>
                 </div>)}
