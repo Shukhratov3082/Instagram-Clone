@@ -15,7 +15,6 @@ import User1 from '../assets/User1.png'
 import User2 from '../assets/User2.png'
 import User3 from '../assets/User3.png'
 import User4 from '../assets/User4.png'
-import User5 from '../assets/User5.png'
 import Like from '../assets/Like.svg'
 import Profile from '../assets/Profile.png'
 

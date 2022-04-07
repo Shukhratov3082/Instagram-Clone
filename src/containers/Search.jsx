@@ -4,6 +4,7 @@ import Controller from '../components/Controller';
 import qr from '../assets/qr.svg';
 import search from '../assets/search-icon.svg';
 import image1 from '../assets/Like/image1.png'
+import image3 from '../assets/Like/image3.png'
 const Search = () => {
     return (
         <Container>
@@ -25,15 +26,16 @@ const Search = () => {
             <Content>
                 <img className='img1' src={image1} alt="" />
                 <img className='img2' src={image1} alt="" />
-                <img className='img3' src={image1} alt="" />
+                <img className='img3' src={image3} alt="" />
                 <img className='img4' src={image1} alt="" />
                 <img className='img5' src={image1} alt="" />
                 <img className='img6' src={image1} alt="" />
                 <img className='img7' src={image1} alt="" />
                 <img className='img8' src={image1} alt="" />
                 <img className='img9' src={image1} alt="" />
-                <img className='img10' src={image1} alt="" />
-                <img className='img11' src={image1} alt="" />
+                <img className='img10' src={image3} alt="" />
+                <img className='img11' src={image1} alt="" /> 
+       
             </Content>
             <Controller />
         </Container>
@@ -118,22 +120,36 @@ const Content = styled.div`
     width: 100%;
     height: 628px;
     background-color: aqua;
-    .img1{grid-area:norm;}
-    .img2{grid-area:norm;}
-    .img3{grid-area:big;}
-    .img4{grid-area:norm;}
-    .img5{grid-area:norm;}
-    .img6{grid-area:norm;}
-    .img7{grid-area:norm;}
-    .img8{grid-area:norm;}
-    .img9{grid-area:norm;}
-    .img10{grid-area:big;}
-    .img11{grid-area:norm;}
+    overflow: auto;
+    ::-webkit-scrollbar {
+            width: 0px;
+        }
+    .img1{ width: 100%;grid-area:little1;}
+    .img2{ width: 100%;grid-area:little2;}
+    .img3{ width: 100%;grid-area:big1;}
+    .img4{ width:100%; grid-area:little3;}
+    .img5{ width:100%; grid-area:little4;}
+    .img6{ width:100%; grid-area:little5;}
+    .img7{ width:100%; grid-area:little6;}
+    .img8{ width:100%; grid-area:little7;}
+    .img9{ width:100%; grid-area:little8;}
+    .img10{ width:100%; grid-area:big2;}
+    .img11{  width:100%; grid-area:little9;}
+  
+
     display: grid;
      grid-template-areas:
-    'norm  big big big
-     norm big big big
-     norm norm norm norm
-     norm norm norm norm
+     'little1 big1 big1'
+     'little2 big1 big1'
+     'little3 little4 little5'
+     'little6 little7 little8'
+     'big2 big2 little9'
+     'big2 big2 little9'
+     
+
+  
+     
+   
+    
    
 `;

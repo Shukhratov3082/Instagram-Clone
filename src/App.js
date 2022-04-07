@@ -4,12 +4,14 @@ import Join from "./containers/Join";
 import Home from "./containers/Home";
 import Search from "./containers/Search";
 import Like from "./containers/Like";
-import Signup from "./containers/SignUp";
+import Signup from "./containers/Signup";
 import Createpost from "./containers/CreatePost";
 import Profile from "./containers/Profile";
 import EditProfile from "./containers/EditProfile";
 import You from "./components/You";
 import Following from "./components/Following";
+import { useEffect } from "react";
+import axios from "axios";
 // import { useEffect } from "react";
 
 
@@ -18,6 +20,11 @@ function App() {
   // useEffect(() => {
   //   navigate('/home')
   // }, [navigate]);
+  useEffect(() => {
+    axios.get('https://instagram-backent.herokuapp.com/v2/api-docs')
+      .then(res => console.log("res",res))
+      .catch(ress => console.log(ress,"xato"))
+  }, [])
   return (
     <Routes>
       <Route path="/" element={<Join />} />

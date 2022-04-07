@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import  HomeDark  from '../assets/HomeDark.svg'
 import HomeWhite from '../assets/HomeWhite.svg'
 import Like from '../assets/Like.svg'
 import Profile from '../assets/Profile.png'
