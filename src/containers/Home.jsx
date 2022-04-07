@@ -17,65 +17,72 @@ import User3 from '../assets/User3.png'
 import User4 from '../assets/User4.png'
 import Like from '../assets/Like.svg'
 import Profile from '../assets/Profile.png'
+import { useEffect } from 'react';
+import axios from 'axios';
 
 
 
 const Home = () => {
-    const Users = [
-        { img: User1, text: "Your Story" },
-        { img: User2, text: "karennne" },
-        { img: User3, text: "zackjohn" },
-        { img: User4, text: "kieron_d" },
-        { img: User1, text: "craig_love" },
-    ]
-    return (
-        <Wrapper>
-            <header>
-                <img className='camera' src={Camera} alt="" />
-                <img className='instagram' width='120px' height='50px' src={Instagram} alt="" />
+    useEffect(() => {
+        axios.get('https://searching-server.herokuapp.com/post')
+            .then(res => console.log('res', res))
+            .catch(res => console.log('error', res))
+         }, [])
+const Users = [
+    { img: User1, text: "Your Story" },
+    { img: User2, text: "karennne" },
+    { img: User3, text: "zackjohn" },
+    { img: User4, text: "kieron_d" },
+    { img: User1, text: "craig_love" },
+]
+return (
+    <Wrapper>
+        <header>
+            <img className='camera' src={Camera} alt="" />
+            <img className='instagram' width='120px' height='50px' src={Instagram} alt="" />
+            <div>
+                <img className='igtv' src={Igtv} alt="" />
+                <img className='path' src={Path} alt="" />
+            </div>
+        </header>
+        <div className='Users'>
+            {Users.map(({ img, text }) => <div key={Math.random()}>
+                <img width='62px' height='62px' src={img} alt="" />
+                <p>{text}</p>
+            </div>)}
+        </div>
+        <div className='profile'>
+            <img src={HomeProfile} alt="" />
+            <div>
+                <p>joshua_l <img src={Galochka} alt="" /></p>
+                <p>Tokyo, Japan</p>
+            </div>
+            <img className='points' src={Points} alt="" />
+        </div>
+        <div className='image-container'>
+            <img src={imageContainer} alt="" />
+            <div className='details'>
                 <div>
-                    <img className='igtv' src={Igtv} alt="" />
-                    <img className='path' src={Path} alt="" />
-                </div>
-            </header>
-            <div className='Users'>
-                {Users.map(({ img, text }) => <div key={Math.random()}>
-                    <img width='62px' height='62px' src={img} alt="" />
-                    <p>{text}</p>
-                </div>)}
-            </div>
-            <div className='profile'>
-                <img src={HomeProfile} alt="" />
-                <div>
-                    <p>joshua_l <img src={Galochka} alt="" /></p>
-                    <p>Tokyo, Japan</p>
-                </div>
-                <img className='points' src={Points} alt="" />
-            </div>
-            <div className='image-container'>
-                <img src={imageContainer} alt="" />
-                <div className='details'>
-                    <div>
-                        <div className='left'>
-                            <img width='23px' height='20px' src={Like} alt="" />
-                            <img src={Comment} alt="" />
-                            <img src={Path} alt="" />
-                        </div>
-                        <div className='right'>
-                            <img src={Points2} alt="" />
-                            <img src={Vitka} alt="" />
-                        </div>
+                    <div className='left'>
+                        <img width='23px' height='20px' src={Like} alt="" />
+                        <img src={Comment} alt="" />
+                        <img src={Path} alt="" />
                     </div>
-                    <div className='bottom'>
-                        <img width='17px' height='17px' src={Profile} alt="" /> <span>Liked by craig_love and 44,686 others</span>
-                        <p>joshua_l The game in Japan was amazing and I want to share some photos</p>
+                    <div className='right'>
+                        <img src={Points2} alt="" />
+                        <img src={Vitka} alt="" />
                     </div>
                 </div>
+                <div className='bottom'>
+                    <img width='17px' height='17px' src={Profile} alt="" /> <span>Liked by craig_love and 44,686 others</span>
+                    <p>joshua_l The game in Japan was amazing and I want to share some photos</p>
+                </div>
             </div>
+        </div>
 
-            <Controller />
-        </Wrapper>
-    );
+        <Controller />
+    </Wrapper>
+);
 }
 
 export default Home;
