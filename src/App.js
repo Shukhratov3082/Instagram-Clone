@@ -10,6 +10,8 @@ import Profile from "./containers/Profile";
 import EditProfile from "./containers/EditProfile";
 import You from "./components/You";
 import Following from "./components/Following";
+import { useEffect } from "react";
+import axios from "axios";
 // import { useEffect } from "react";
 
 
@@ -18,6 +20,11 @@ function App() {
   // useEffect(() => {
   //   navigate('/home')
   // }, [navigate]);
+  useEffect(() => {
+    axios.get('https://instagram-backent.herokuapp.com/v2/api-docs')
+      .then(res => console.log("res",res))
+      .catch(ress => console.log(ress,"xato"))
+  }, [])
   return (
     <Routes>
       <Route path="/" element={<Join />} />
