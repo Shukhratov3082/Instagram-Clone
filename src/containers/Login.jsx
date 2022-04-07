@@ -2,38 +2,59 @@ import styled from 'styled-components';
 import vektor from '../assets/vektor.svg'
 import logo from '../assets/Instagram Logo.svg'
 import facebook from '../assets/facebook.svg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
 
 const Login = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate()
+
+    const reqbody = {
+        username: username,
+        password: password,
+    }
+
+    function Addto() {
+        axios.post('https://searching-server.herokuapp.com/auth/login', reqbody)
+            .then(res => {
+                localStorage.setItem('token', res.data)
+                console.log("res",res)
+                navigate('/home')
+            })
+            .catch((err) => console.log('xato', err))
+    }
     return (
         <Wrapper>
             <Container>
-                <Link to="/">
-                    <img className='vektor' src={vektor} alt="" />
-                </Link>
+                <Link to="/"><img className='vektor' src={vektor} alt="" /></Link>
                 <img className='logo' src={logo} alt="" />
+
                 <div className="input-container">
-                    <input placeholder='Login' className='text-input' type="text" />
-                    <input placeholder='Password' className='password-input' type="password" />
+                    <input onChange={({ target }) => setUsername(target.value)} placeholder='Login' className='text-input' type="text" />
+                    <input onChange={({ target }) => setPassword(target.value)} placeholder='Password' className='password-input' type="password" />
                 </div>
-                <div className="forget-container">
-                    <span>Forgot password?</span>
-                </div>
-                <Link to="/home">
-                    <Button>Log in</Button>
-                </Link>
+
+                <div className="forget-container"><span>Forgot password?</span></div>
+
+                <div><Button onClick={Addto}>Log in</Button></div>
+
                 <div className="facebook-container">
                     <img src={facebook} alt="" />
                     <span>Log in with Facebook</span>
                 </div>
+
                 <div className="or-container">
                     <div className="line"></div>
                     <span>OR</span>
                     <div className="line"></div>
                 </div>
+
                 <div className="qeustion-container">
                     <p>Don't have an account?<Link className='link' to="/signup"><span> Sign up.</span></Link></p>
                 </div>
+
                 <div className="meta-container">
                     <span>Instagram from Meta</span>
                 </div>
