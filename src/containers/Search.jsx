@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Controller from '../components/Controller';
 import qr from '../assets/qr.svg';
 import search from '../assets/search-icon.svg';
-
+import image1 from '../assets/Like/image1.png'
 const Search = () => {
     return (
         <Container>
@@ -22,7 +22,19 @@ const Search = () => {
                     <div className="menu">Music</div>
                 </div>
             </SearchContainer>
-            <Content />
+            <Content>
+                <img className='img1' src={image1} alt="" />
+                <img className='img2' src={image1} alt="" />
+                <img className='img3' src={image1} alt="" />
+                <img className='img4' src={image1} alt="" />
+                <img className='img5' src={image1} alt="" />
+                <img className='img6' src={image1} alt="" />
+                <img className='img7' src={image1} alt="" />
+                <img className='img8' src={image1} alt="" />
+                <img className='img9' src={image1} alt="" />
+                <img className='img10' src={image1} alt="" />
+                <img className='img11' src={image1} alt="" />
+            </Content>
             <Controller />
         </Container>
 
@@ -106,4 +118,22 @@ const Content = styled.div`
     width: 100%;
     height: 628px;
     background-color: aqua;
+    .img1{grid-area:norm;}
+    .img2{grid-area:norm;}
+    .img3{grid-area:big;}
+    .img4{grid-area:norm;}
+    .img5{grid-area:norm;}
+    .img6{grid-area:norm;}
+    .img7{grid-area:norm;}
+    .img8{grid-area:norm;}
+    .img9{grid-area:norm;}
+    .img10{grid-area:big;}
+    .img11{grid-area:norm;}
+    display: grid;
+     grid-template-areas:
+    'norm  big big big
+     norm big big big
+     norm norm norm norm
+     norm norm norm norm
+   
 `;

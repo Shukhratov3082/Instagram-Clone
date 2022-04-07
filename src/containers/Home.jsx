@@ -27,7 +27,7 @@ const Home = () => {
         { img: User2, text: "karennne" },
         { img: User3, text: "zackjohn" },
         { img: User4, text: "kieron_d" },
-        { img: User5, text: "craig_love" },
+        { img: User1, text: "craig_love" },
     ]
     return (
         <Wrapper>
@@ -106,11 +106,16 @@ const Wrapper = styled.div`
     
     }  
     .Users{
-        height:98px;
-        padding: 9px 10px;
+        height:111px;
+        padding: 0;
         display: grid;
+        align-items: center;
+        overflow: auto;
         grid-template-columns: repeat(5,80px);
         cursor: pointer;
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
         
         div{
             display: flex;
