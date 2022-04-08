@@ -8,7 +8,6 @@ import Like from '../assets/Like.svg'
 import Profile from '../assets/Profile.png'
 import Path from '../assets/Path.svg'
 
-
 const Post = ({ img, title, id }) => {
     return (
         <Wrapper>
