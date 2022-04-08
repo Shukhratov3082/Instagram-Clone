@@ -11,7 +11,6 @@ import Galochka from '../assets/check mark.svg';
 import HomeProfile from '../assets/HomeProfile.png'
 
 const Post = ({ img, title, id,location }) => {
-    console.log(img[0])
     return (
         <Wrapper>
             <div className='profile'>
