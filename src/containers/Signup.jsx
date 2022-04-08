@@ -1,8 +1,9 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import InstagramIcon from '../assets/Instagram Logo.svg'
-import API from '../utils/axios';
+// import API from '../utils/axios';
 
 const Signup = () => {
     const [username, setUsername] = useState("");
@@ -19,11 +20,11 @@ const Signup = () => {
             fullName: fullName,
             email: email,
         }
-        API.post('/auth/registration', reqBody)
+        axios.post('https://searching-server.herokuapp.com/auth/registration', reqBody)
             .then((res) => {
                 console.log(res);
                 navigate("/")
-            })
+            }).catch(res => console.log(res))
     }
 
     return (
