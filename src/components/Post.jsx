@@ -11,8 +11,7 @@ import Galochka from '../assets/check mark.svg';
 import HomeProfile from '../assets/HomeProfile.png'
 
 
-const Post = ({ img, title, id, location }) => {
- console.log(img,i)
+const Post = ({ img, title, id, location, hashtag }) => {
 
     return (
         <Wrapper>
@@ -40,6 +39,7 @@ const Post = ({ img, title, id, location }) => {
                 <div className='bottom'>
                     <img width='17px' height='17px' src={Profile} alt="" /> <span>Liked by craig_love and 44,686 others</span>
                     <p>{title}</p>
+                    <p>{hashtag}</p>
                 </div>
             </div>
         </Wrapper>
