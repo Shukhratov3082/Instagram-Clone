@@ -19,7 +19,8 @@ const Createpost = () => {
             title: title
         }
         API.post('/post', reqBody)
-            .then((res) => { console.log("OXSHADI") })
+            .then((res) => { console.log("OXSHADI",res) })
+            .catch(res =>console.log(res))
     }
 
     return (
@@ -32,7 +33,7 @@ const Createpost = () => {
                     <span className='next'>Next</span>
                 </div>
                 <form action="">
-                    <Input value={title} onChange={({ target }) => setTitle(target.value)} type="text" placeholder="Sarlavha" />
+                    <Input value={title} onChange={({ target }) => setTitle(target.value)} type="text" placeholder="Title" />
                     <Input type="file" onChange={({ target }) => setFile(target.files[0])} />
                 </form>
                 <button onClick={AddPost}>Create</button>
