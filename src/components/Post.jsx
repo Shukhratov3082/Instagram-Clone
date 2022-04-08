@@ -11,18 +11,18 @@ import Galochka from '../assets/check mark.svg';
 import HomeProfile from '../assets/HomeProfile.png'
 
 const Post = ({ img, title, id,location }) => {
-    console.log(img,title,id,location)
+    console.log(img[0])
     return (
         <Wrapper>
             <div className='profile'>
                 <img src={HomeProfile} alt="" />
                 <div>
-                    <p><img src={Galochka} alt="" /></p>
+                    <p>John <img src={Galochka} alt="" /></p>
                     <p>{location}</p>
                 </div>
                 <img className='points' src={Points} alt="" />
             </div>
-            <img src={`https://searching-server.herokuapp.com/2c9064fa80000e9301800029f5270000`} alt="" />
+            <img height='375px' width='375px'  src={`https://searching-server.herokuapp.com/attach/open/${img[1]}`} alt="" />
             <div className='details'>
                 <div>
                     <div className='left'>
@@ -47,7 +47,7 @@ const Post = ({ img, title, id,location }) => {
 export default Post;
 
 const Wrapper = styled.div`
-    height: 100%;
+        height: 547px;
         .details{
             padding: 13px 14px 10px 14px;
             height: 118px;

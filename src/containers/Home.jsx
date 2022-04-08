@@ -121,4 +121,8 @@ const Wrapper = styled.div`
 `
 const PostContainer = styled.div`
     height: 547px;
+    overflow: auto;
+    ::-webkit-scrollbar {
+            width: 0px;
+        }
 `

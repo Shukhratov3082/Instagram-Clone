@@ -24,7 +24,7 @@ const Createpost = () => {
 
     return (
         <Wrapper>
-            <Container>
+           
                 <div className="confirmation">
                     <Link className='link' to="/home">
                         <span className='cancel'>Cancel</span>
@@ -32,36 +32,30 @@ const Createpost = () => {
                     <span className='next'>Next</span>
                 </div>
                 <form action="">
-                    <input value={title} onChange={({ target }) => setTitle(target.value)} type="text" placeholder="Sarlavha" />
-                    <input type="file" onChange={({ target }) => setFile(target.files[0])} />
+                    <Input value={title} onChange={({ target }) => setTitle(target.value)} type="text" placeholder="Sarlavha" />
+                    <Input type="file" onChange={({ target }) => setFile(target.files[0])} />
                 </form>
                 <button onClick={AddPost}>Create</button>
-            </Container>
+           
         </Wrapper>
     );
 }
 
 export default Createpost;
 
-const Wrapper = styled.div`
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: whitesmoke;
 
-`
-const Container = styled.div`
+
+const Wrapper = styled.div`
     width: 375px;
     height: 812px;
-    background-color: white;
+    background-color:white;
+    padding: 10px 15px;
 
     .confirmation {
         height: 56px;
         width: 100%;
-        padding: 24px 12px 0 12px;
         display: flex;
+        margin-bottom: 10px;
         justify-content: space-between;
 
         .cancel {
@@ -86,21 +80,21 @@ const Container = styled.div`
         }
     }
 
-    input {
-        
+    button {
+        width: 100%;
+        padding: 8px 16px;
+        font-size: 20px;
+        background-color: #1d74ad;
+        color: white;
+        border: none;
+        border-radius: 8px;
+    }
+`;
+const Input = styled.input`
+            width: 100%;
             padding: 12px 24px;
             display: block;
             border: 3px solid #1d74ad;
-            font-size: 24px;
-            margin: 16px 0;
-        
-    }
-
-    button {
-        padding: 8px 16px;
-        background-color: #1d74ad;
-        color: white;
-        border-radius: 8px;
-        margin: 0 8px;
-    }
-`;
+            font-size: 22px;
+            margin-bottom: 15px;
+`
