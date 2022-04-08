@@ -3,18 +3,18 @@ import styled from 'styled-components';
 import RightNav from '../components/Nav';
 
 const Burger = () => {
-    const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
-    return (
-        <>
-            <StyledBurger open={open} onClick={() => setOpen(!open)}>
-                <div />
-                <div />
-                <div />
-            </StyledBurger>
-            <RightNav open={open} />
-        </>
-    )
+  return (
+    <>
+      <StyledBurger open={open} onClick={() => setOpen(!open)}>
+        <div />
+        <div />
+        <div />
+      </StyledBurger>
+      <RightNav open={open} />
+    </>
+  )
 }
 
 export default Burger
@@ -24,6 +24,7 @@ const StyledBurger = styled.div`
   height: 30px;
   position: absolute;
   z-index: 20;
+  cursor: pointer;
 
     display: flex;
     justify-content: space-around;
