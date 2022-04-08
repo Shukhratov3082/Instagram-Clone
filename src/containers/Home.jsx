@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import Controller from '../components/Controller';
-import Points from '../assets/points.svg'
-import Galochka from '../assets/check mark.svg';
-import HomeProfile from '../assets/HomeProfile.png'
+
 import Camera from '../assets/Camera.svg'
 import Instagram from '../assets/Instagram Logo.svg'
 import Igtv from '../assets/IGTV.svg'
@@ -21,6 +19,7 @@ const Home = () => {
 
     useEffect(() => {
         API.get("/post").then(res => setPosts(res.data))
+            .catch(res => console.log(res))
     }, [])
 
     console.log(posts)
@@ -48,23 +47,18 @@ const Home = () => {
                     <p>{text}</p>
                 </div>)}
             </div>
-            <div className='profile'>
-                <img src={HomeProfile} alt="" />
-                <div>
-                    <p>joshua_l <img src={Galochka} alt="" /></p>
-                    <p>Tokyo, Japan</p>
-                </div>
-                <img className='points' src={Points} alt="" />
-            </div>
-            <Post>
-                {posts.map(({ id, title, attach }) =>
+
+
+            <PostContainer>
+                {posts.map(({ id, title, attachs, location }) =>
                     <Post
                         id={id}
                         key={id}
-                        img={attach}
+                        img={attachs}
                         title={title}
+                        location={location}
                     />)}
-            </Post>
+            </PostContainer>
             <Controller />
         </Wrapper>
     );
@@ -74,6 +68,7 @@ export default Home;
 
 const Wrapper = styled.div`
     width: 375px;
+    height: 812px;
     overflow: hidden;
     background-color: white;
 
@@ -121,21 +116,9 @@ const Wrapper = styled.div`
             }
         }
     }
-    .profile{
-        height: 54px;
-        padding: 11px 10px;
-        display: flex;
-        gap: 10px;
-        div{
-            display: block;
-        }
-        .points{
-            width: 14px;
-                position: relative;
-                left: 183px;
-            }
-    }
-    .image-container{
-        
-    }
+   
+ 
+`
+const PostContainer = styled.div`
+    height: 547px;
 `
