@@ -12,9 +12,7 @@ import HomeProfile from '../assets/HomeProfile.png'
 
 
 const Post = ({ img, title, id, location }) => {
-
-
-
+ console.log(img,i)
 
     return (
         <Wrapper>
