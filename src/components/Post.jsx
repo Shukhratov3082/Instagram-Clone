@@ -1,18 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-// import imageContainer from '../assets/Home-imageContainer.png'
 import Vitka from '../assets/vitka.svg'
 import Points2 from '../assets/points2.svg'
 import Comment from '../assets/Comment.svg'
 import Like from '../assets/Like.svg'
 import Profile from '../assets/Profile.png'
 import Path from '../assets/Path.svg'
+import Points from '../assets/points.svg'
+import Galochka from '../assets/check mark.svg';
+import HomeProfile from '../assets/HomeProfile.png'
 
-
-const Post = ({ img, title, id }) => {
+const Post = ({ img, title, id,location }) => {
+    console.log(img,title,id,location)
     return (
         <Wrapper>
-            <img src={img} alt="" />
+            <div className='profile'>
+                <img src={HomeProfile} alt="" />
+                <div>
+                    <p><img src={Galochka} alt="" /></p>
+                    <p>{location}</p>
+                </div>
+                <img className='points' src={Points} alt="" />
+            </div>
+            <img src={`https://searching-server.herokuapp.com/2c9064fa80000e9301800029f5270000`} alt="" />
             <div className='details'>
                 <div>
                     <div className='left'>
@@ -37,7 +47,7 @@ const Post = ({ img, title, id }) => {
 export default Post;
 
 const Wrapper = styled.div`
-    height: 500px;
+    height: 100%;
         .details{
             padding: 13px 14px 10px 14px;
             height: 118px;
@@ -70,4 +80,18 @@ const Wrapper = styled.div`
          
             
         }
+        .profile{
+        height: 54px;
+        padding: 11px 10px;
+        display: flex;
+        gap: 10px;
+        div{
+            display: block;
+        }
+        .points{
+            width: 14px;
+                position: relative;
+                left: 183px;
+            }
+    }
 `;
