@@ -10,7 +10,7 @@ import Points from '../assets/points.svg'
 import Galochka from '../assets/check mark.svg';
 import HomeProfile from '../assets/HomeProfile.png'
 
-const Post = ({ img, title, id,location }) => {
+const Post = ({ img, title, location, hashtag }) => {
     return (
         <Wrapper>
             <div className='profile'>
@@ -21,7 +21,7 @@ const Post = ({ img, title, id,location }) => {
                 </div>
                 <img className='points' src={Points} alt="" />
             </div>
-            <img height='375px' width='375px'  src={`https://searching-server.herokuapp.com/attach/open/${img[1]}`} alt="" />
+            <img height='375px' width='375px' src={`https://searching-server.herokuapp.com/attach/open/${img[1]}`} alt="" />
             <div className='details'>
                 <div>
                     <div className='left'>
@@ -37,6 +37,7 @@ const Post = ({ img, title, id,location }) => {
                 <div className='bottom'>
                     <img width='17px' height='17px' src={Profile} alt="" /> <span>Liked by craig_love and 44,686 others</span>
                     <p>{title}</p>
+                    <span>{hashtag}</span>
                 </div>
             </div>
         </Wrapper>

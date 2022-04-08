@@ -50,13 +50,14 @@ const Home = () => {
 
 
             <PostContainer>
-                {posts.map(({ id, title, attachs, location }) =>
+                {posts.map(({ id, title, attachs, location, hashtag }) =>
                     <Post
                         id={id}
                         key={id}
                         img={attachs}
                         title={title}
                         location={location}
+                        hashtag={hashtag}
                     />)}
             </PostContainer>
             <Controller />
