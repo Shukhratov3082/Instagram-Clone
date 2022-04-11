@@ -1,30 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import API from '../utils/axios';
 
 const Createpost = () => {
+    const navigate = useNavigate()
 
     const [title, setTitle] = useState("");
-    const [file, setFile] = useState([]);
-
-    let now = new Date();
-
-    console.log(now)
+    const [file, setFile] = useState(null);
+    const [location, setLocation] = useState("");
+    const [hashtag, setHashtag] = useState("");
 
     function AddPost() {
-        const reqBody = {
-            attachs: [file],
-            createdDate: now,
-            hashtag: "hashtag",
-            id: 0,
-            location: "string",
-            profileId: 0,
-            title: title
-        }
-        API.post('/post', reqBody)
-            .then((res) => { console.log("OXSHADI", res) })
-            .catch(res => console.log(res))
+        let form = new FormData();
+        form.append("file", file);
+        form.append("hashtag", hashtag);
+        form.append("location", location);
+        form.append("title", title);
+
+        API.post("/attach/upload/POST", form)
+            .then(res => {
+                const reqBody = {
+                    "title": title,
+                    "location": location,
+                    "hashtag": hashtag,
+                    "attachs": [
+                        res.data.id
+                    ]
+                }
+                API.post("/post", reqBody)
+                    .then(res => navigate("/home"))
+            })
     }
 
     return (
@@ -36,11 +42,16 @@ const Createpost = () => {
                 </Link>
                 <span className='next'>Next</span>
             </div>
-            <form action="">
-                <Input value={title} onChange={({ target }) => setTitle(target.value)} type="text" placeholder="Title" />
-                <Input type="file" onChange={({ target }) => setFile(target.files[0])} />
-            </form>
-            <button onClick={AddPost}>Create</button>
+
+            <div className="create-post-container">
+                <div className='form'>
+                    <input type="text" onChange={({ target }) => setTitle(target.value)} placeholder="Title" />
+                    <input type="file" onChange={({ target }) => setFile(target.files[0])} />
+                    <input type="text" onChange={({ target }) => setLocation(target.value)} placeholder="Location" />
+                    <input type="text" onChange={({ target }) => setHashtag(target.value)} placeholder="Hashtag" />
+                    <button onClick={AddPost}>Create</button>
+                </div>
+            </div>
 
         </Wrapper>
     );
@@ -85,21 +96,48 @@ const Wrapper = styled.div`
         }
     }
 
-    button {
+    .create-post-container {
         width: 100%;
-        padding: 8px 16px;
-        font-size: 20px;
-        background-color: #1d74ad;
-        color: white;
-        border: none;
-        border-radius: 8px;
+        height: 90%;
+        display: flex;
+        align-items: center;
+
+        input {
+            width: 100%;
+            padding: 15px 18px;
+            margin-bottom: 20px;
+
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 17px;
+            letter-spacing: -0.15px;
+            color: #262626;
+            outline: none;
+
+            background: #FAFAFA;
+            border: 0.5px solid rgba(43, 43, 43, 0.1);
+            border-radius: 5px;
+
+            ::placeholder {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 17px;
+                letter-spacing: -0.15px;
+                color: rgba(36, 36, 36, 0.2); 
+            }
+        }
+
+        button {
+            width: 100%;
+            padding: 8px 16px;
+            font-size: 20px;
+            background-color: #1d74ad;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
     }
 `;
-const Input = styled.input`
-            width: 100%;
-            padding: 12px 24px;
-            display: block;
-            border: 3px solid #1d74ad;
-            font-size: 22px;
-            margin-bottom: 15px;
-`

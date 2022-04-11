@@ -1,9 +1,10 @@
 import axios from "axios";
 
 const defaultOptions = {
-    baseURL: "https://searching-server.herokuapp.com",
+    baseURL: "https://searching-server.herokuapp.com/",
     headers: {
         'Content-Type': 'application/json',
+        'Accept': '*/*'
     },
 };
 

@@ -21,7 +21,7 @@ const Login = () => {
     function Addto() {
         API.post('/auth/login', reqbody)
             .then(res => {
-                localStorage.setItem('user-token', res.data)
+                localStorage.setItem('user-token', res.data.jwt)
                 console.log("res", res)
                 navigate('/home')
             })
