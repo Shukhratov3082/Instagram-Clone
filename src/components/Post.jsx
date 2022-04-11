@@ -53,26 +53,31 @@ export default Post;
 
 const Wrapper = styled.div`
         height: 547px;
+
         .details{
             padding: 13px 14px 10px 14px;
             height: 118px;
+            
             div{
                 display: flex;
                 align-items: center;
+
                 .left{
                     display: flex;
                     gap: 20px;
                     margin-right: 57px;
                 }
-                  .right{
+
+                .right{
                     width: 195px;
                     display: flex;
                     justify-content: space-between;
-                 }
+                }
             }
             .bottom{
                 display: block;
                 margin-top: 12px;
+                
                 img{
                     position: relative;
                     top: 4px;
@@ -80,23 +85,24 @@ const Wrapper = styled.div`
                 span,p{
                     font-size: 13px;
                 }
-
             }
          
             
         }
         .profile{
-        height: 54px;
-        padding: 11px 10px;
-        display: flex;
-        gap: 10px;
-        div{
-            display: block;
-        }
-        .points{
-            width: 14px;
-            position: relative;
-            left: 114px;
+            height: 54px;
+            padding: 11px 10px;
+            display: flex;
+            gap: 10px;
+
+            div{
+                display: block;
             }
-    }
+
+            .points{
+                width: 14px;
+                display: block;
+                margin: 0 0 0 auto;
+            }
+        }
 `;
