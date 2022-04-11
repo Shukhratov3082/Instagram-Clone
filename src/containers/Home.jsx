@@ -54,7 +54,7 @@ const Home = () => {
                     <Post
                         id={id}
                         key={id}
-                        img={attachs}
+                        imgs={attachs}
                         title={title}
                         location={location}
                         hashtag={hashtag}

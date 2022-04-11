@@ -8,10 +8,14 @@ const Createpost = () => {
     const [title, setTitle] = useState("");
     const [file, setFile] = useState([]);
 
+    let now = new Date();
+
+    console.log(now)
+
     function AddPost() {
         const reqBody = {
             attachs: [file],
-            createdDate: "2022-04-08T03:52:39.504Z",
+            createdDate: now,
             hashtag: "hashtag",
             id: 0,
             location: "string",
@@ -19,25 +23,25 @@ const Createpost = () => {
             title: title
         }
         API.post('/post', reqBody)
-            .then((res) => { console.log("OXSHADI",res) })
-            .catch(res =>console.log(res))
+            .then((res) => { console.log("OXSHADI", res) })
+            .catch(res => console.log(res))
     }
 
     return (
         <Wrapper>
-           
-                <div className="confirmation">
-                    <Link className='link' to="/home">
-                        <span className='cancel'>Cancel</span>
-                    </Link>
-                    <span className='next'>Next</span>
-                </div>
-                <form action="">
-                    <Input value={title} onChange={({ target }) => setTitle(target.value)} type="text" placeholder="Title" />
-                    <Input type="file" onChange={({ target }) => setFile(target.files[0])} />
-                </form>
-                <button onClick={AddPost}>Create</button>
-           
+
+            <div className="confirmation">
+                <Link className='link' to="/home">
+                    <span className='cancel'>Cancel</span>
+                </Link>
+                <span className='next'>Next</span>
+            </div>
+            <form action="">
+                <Input value={title} onChange={({ target }) => setTitle(target.value)} type="text" placeholder="Title" />
+                <Input type="file" onChange={({ target }) => setFile(target.files[0])} />
+            </form>
+            <button onClick={AddPost}>Create</button>
+
         </Wrapper>
     );
 }

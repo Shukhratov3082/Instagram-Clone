@@ -1,32 +1,43 @@
-import axios, { Axios } from 'axios';
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import InstagramIcon from '../assets/Instagram Logo.svg'
-import API from '../utils/axios';
 
 const Signup = () => {
+
+    const [fullname, setFullname] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [fullName, setFullname] = useState("");
+    const [website, setWebsite] = useState("");
+    const [bio, setBio] = useState("");
     const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [birthDate, setBirthDate] = useState("");
+    const [gender, setGender] = useState("");
 
     const navigate = useNavigate();
 
-
     function AddSignup() {
-        const reqBody = {
-            username: username,
-            password: password,
-            fullName: fullName,
-            email: email,
-        }
-        API.post('/auth/registration', reqBody)
-            .then((res) => {
-                console.log(res);
-                 navigate("/")
-            })
+        axios.post("https://searching-server.herokuapp.com/auth/registration", {
+            "fullName": fullname,
+            "username": username,
+            "password": password,
+            "website": website,
+            "bio": bio,
+            "email": email,
+            "phone": phone,
+            "birthDate": birthDate,
+            "gender": gender
+
+        }).then(res => {
+            localStorage.setItem('user-token', JSON.stringify(res))
+            //    localStorage.setItem("username", username);
+            //    localStorage.setItem("password", password);
+            navigate("/login")
+        }).catch(err => console.log(err))
     }
+
     return (
         <Wrapper>
             <Container>
@@ -43,6 +54,11 @@ const Signup = () => {
                     <input onChange={({ target }) => setFullname(target.value)} placeholder='Full Name' type="text" />
                     <input onChange={({ target }) => setUsername(target.value)} placeholder='Username' type="text" />
                     <input onChange={({ target }) => setPassword(target.value)} placeholder='Password' type="password" />
+                    <input onChange={({ target }) => setWebsite(target.value)} placeholder='Website' type="text" />
+                    <input onChange={({ target }) => setBio(target.value)} placeholder='Bio' type="text" />
+                    <input onChange={({ target }) => setPhone(target.value)} placeholder='Phone' type="text" />
+                    <input onChange={({ target }) => setBirthDate(target.value)} placeholder='BirthDate' type="date" />
+                    <input onChange={({ target }) => setGender(target.value)} placeholder='Gender' type="text" />
                 </form>
                 <button onClick={AddSignup}>Sign Up</button>
                 <span className='cookie-text'>By signing up, you agree to our Terms , Data Policy and Cookies Policy .</span>
@@ -70,7 +86,7 @@ const Container = styled.div`
 
     .instagram {
         display: block;
-        margin: 22px auto 12px auto;
+        margin: 5px auto 5px auto;
     }
 
     .header-text {
@@ -90,7 +106,7 @@ const Container = styled.div`
         justify-content: space-between;
         align-items: center;
         gap: 10px;
-        margin: 15px 0 20px 0;
+        margin: 5px 0 10px 0;
 
         .line {
             height: 2px;
@@ -107,12 +123,12 @@ const Container = styled.div`
         
         input {
             width: 100%;
-            padding: 14px 15px;
-            margin-bottom: 10px;
+            padding: 11px 14px;
+            margin-bottom: 8px;
 
             font-style: normal;
             font-weight: 400;
-            font-size: 18px;
+            font-size: 14px;
             line-height: 17px;
             letter-spacing: -0.15px;
             color: #262626;
@@ -140,7 +156,7 @@ const Container = styled.div`
         border-radius: 5px;
         border: none;
         cursor: pointer;
-        margin: 20px 0;
+        margin: 10px 0;
 
         font-style: normal;
         font-weight: 600;

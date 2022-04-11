@@ -11,7 +11,7 @@ import Galochka from '../assets/check mark.svg';
 import HomeProfile from '../assets/HomeProfile.png'
 
 
-const Post = ({ img, title, id, location, hashtag }) => {
+const Post = ({ imgs, title, id, location, hashtag }) => {
 
     return (
         <Wrapper>
@@ -23,7 +23,10 @@ const Post = ({ img, title, id, location, hashtag }) => {
                 </div>
                 <img className='points' src={Points} alt="" />
             </div>
-            <img height='375px' width='375px' src={`https://searching-server.herokuapp.com/attach/open/${img[1]}`} alt="" />
+            {
+                imgs.map(img => <img height='375px' width='375px' src={`https://searching-server.herokuapp.com/attach/open/${img}`} alt="" />)
+            }
+
             <div className='details'>
                 <div>
                     <div className='left'>
