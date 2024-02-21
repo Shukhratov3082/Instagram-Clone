@@ -1,250 +1,260 @@
-import styled from 'styled-components';
-import vektor from '../assets/vektor.svg'
-import logo from '../assets/Instagram Logo.svg'
-import facebook from '../assets/facebook.svg'
-import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import API from '../utils/axios';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import vektor from "../assets/vektor.svg";
+import logo from "../assets/Instagram Logo.svg";
+import facebook from "../assets/facebook.svg";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+  function Addto() {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((user) => {
+        navigate("/home");
+        setError(false);
+      })
+      .catch(setError(true));
+  }
 
-    const navigate = useNavigate()
+  return (
+    <Wrapper id="wrapper">
+      <Container>
+        <Link to="/">
+          <img className="vektor" src={vektor} alt="" />
+        </Link>
+        <img className="logo" src={logo} alt="" />
+        <div className="input-container">
+          <input
+            onChange={({ target }) => setEmail(target.value)}
+            placeholder="Login"
+            className={error ? "invalid" : ""}
+            type="text"
+          />
+          <input
+            onChange={({ target }) => setPassword(target.value)}
+            placeholder="Password"
+            className={error ? "invalid" : ""}
+            type="password"
+          />
+        </div>
+        <div className="forget-container">
+          <span>Forgot password?</span>
+        </div>
 
-    const reqbody = {
-        username: username,
-        password: password,
-    }
+        <div>
+          <Button onClick={Addto}>Log in</Button>
+        </div>
 
-    function Addto() {
-        API.post('/auth/login', reqbody)
-            .then(res => {
-                localStorage.setItem('user-token', res.data)
-                console.log("res", res)
-                navigate('/home')
-            })
-            .catch((err) => console.log('xato', err))
-    }
-    return (
-        <Wrapper>
-            <Container>
-                <Link to="/"><img className='vektor' src={vektor} alt="" /></Link>
-                <img className='logo' src={logo} alt="" />
+        <div className="facebook-container">
+          <img src={facebook} alt="" />
+          <span>Log in with Facebook</span>
+        </div>
 
-                <div className="input-container">
-                    <input onChange={({ target }) => setUsername(target.value)} placeholder='Login' className='text-input' type="text" />
-                    <input onChange={({ target }) => setPassword(target.value)} placeholder='Password' className='password-input' type="password" />
-                </div>
+        <div className="or-container">
+          <div className="line"></div>
+          <span>OR</span>
+          <div className="line"></div>
+        </div>
 
-                <div className="forget-container"><span>Forgot password?</span></div>
+        <div className="qeustion-container">
+          <p>
+            Don't have an account?
+            <Link className="link" to="/signup">
+              <span> Sign up.</span>
+            </Link>
+          </p>
+        </div>
 
-                <div><Button onClick={Addto}>Log in</Button></div>
-
-                <div className="facebook-container">
-                    <img src={facebook} alt="" />
-                    <span>Log in with Facebook</span>
-                </div>
-
-                <div className="or-container">
-                    <div className="line"></div>
-                    <span>OR</span>
-                    <div className="line"></div>
-                </div>
-
-                <div className="qeustion-container">
-                    <p>Don't have an account?<Link className='link' to="/signup"><span> Sign up.</span></Link></p>
-                </div>
-
-                <div className="meta-container">
-                    <span>Instagram from Meta</span>
-                </div>
-            </Container>
-        </Wrapper>
-    );
-}
+        <div className="meta-container">
+          <span>Instagram from Meta</span>
+        </div>
+      </Container>
+    </Wrapper>
+  );
+};
 
 export default Login;
 const Wrapper = styled.div`
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: whitesmoke;
-
-`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: whitesmoke;
+`;
 const Container = styled.div`
-    width: 375px;
-    height: 812px;
-    background-color: white;
-    padding: 24px 16px;
-    position: relative;
+  width: 375px;
+  height: 812px;
+  background-color: white;
+  padding: 24px 16px;
+  position: relative;
 
-    .vektor {
-        cursor: pointer;
-        position: absolute;
-        top: 24px;
-        left: 16px;
+  .vektor {
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    left: 16px;
+  }
+
+  .logo {
+    position: absolute;
+    top: 136px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .input-container {
+    margin-top: 224px;
+    input {
+      width: 100%;
+      padding: 14px 15px;
+      font-size: 14px;
+      border: 0.5px solid rgba(105, 105, 105, 0.473);
+      border-radius: 5px;
+      ::placeholder {
+        color: rgba(0, 0, 0, 0.411);
+      }
+      &:first-child {
+        margin-bottom: 12px;
+      }
+    }
+    .invalid {
+      animation: shake 0.3s;
+      border: 0.5px solid red;
+    }
+    @keyframes shake {
+      25% {
+        transform: translateX(4px);
+      }
+      50% {
+        transform: translateX(-4px);
+      }
+      25% {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  .forget-container {
+    margin-top: 19px;
+    margin-bottom: 30px;
+    text-align: end;
+
+    span {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 14px;
+      text-align: right;
+      letter-spacing: 0.15px;
+      color: #3797ef;
+      cursor: pointer;
+    }
+  }
+
+  .facebook-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 37px;
+
+    span {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: -0.15px;
+      color: #3797ef;
+      cursor: pointer;
+    }
+  }
+
+  .or-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 41px;
+
+    .line {
+      width: 100%;
+      height: 1px;
+      border: 0.33px solid rgba(0, 0, 0, 0.2);
     }
 
-    .logo {
-        position: absolute;
-        top: 136px;
-        left: 50%;
-        transform: translate(-50%);
+    span {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 14px;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.4);
     }
+  }
 
-    .input-container {
-        margin-top: 224px;
+  .qeustion-container {
+    margin-top: 41.5px;
+    text-align: center;
 
-        .text-input {
-            margin-bottom: 12px;
-        }
+    p {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      letter-spacing: -0.15px;
+      color: rgba(0, 0, 0, 0.4);
 
-        input {
-            width: 100%;
-            padding: 14px 15px;
-
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 17px;
-            letter-spacing: -0.15px;
-            color: #262626;
-
-            background: #FAFAFA;
-            border: 0.5px solid rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-
-            ::placeholder {
-                font-style: normal;
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 17px;
-                letter-spacing: -0.15px;
-                color: rgba(0, 0, 0, 0.2);
-            }
-        }
+      span {
+        color: #3797ef;
+      }
     }
+  }
 
-    .forget-container {
-        margin-top: 19px;
-        margin-bottom: 30px;
-        text-align: end;
+  .meta-container {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translate(-50%);
 
-        span {
-            font-style: normal;
-            font-weight: 500;
-            font-size: 12px;
-            line-height: 14px;
-            text-align: right;
-            letter-spacing: 0.15px;
-            color: #3797EF;
-            cursor: pointer;
-        }
+    span {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 14px;
+      text-align: center;
+      letter-spacing: -0.01px;
+      color: rgba(0, 0, 0, 0.4);
     }
+  }
 
-    .facebook-container {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 37px;
-
-        span {
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 17px;
-            letter-spacing: -0.15px;
-            color: #3797EF;
-            cursor: pointer;
-        }
-    }
-
-    .or-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        margin-top: 41px;
-
-        .line {
-            width: 100%;
-            height: 1px;
-            border: 0.33px solid rgba(0, 0, 0, 0.2);
-        }
-
-        span {
-            font-style: normal;
-            font-weight: 600;
-            font-size: 12px;
-            line-height: 14px;
-            text-align: center;
-            color: rgba(0, 0, 0, 0.4);
-        }
-    }
-
-    .qeustion-container {
-        margin-top: 41.5px;
-        text-align: center;
-
-        p {
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 17px;
-            text-align: center;
-            letter-spacing: -0.15px;
-            color: rgba(0, 0, 0, 0.4);
-
-            span {
-                color: #3797EF;
-            }
-        }
-    }
-
-    .meta-container {
-        position: absolute;
-        bottom: 24px;
-        left: 50%;
-        transform: translate(-50%);
-
-        span {
-            font-style: normal;
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 14px;
-            text-align: center;
-            letter-spacing: -0.01px;
-            color: rgba(0, 0, 0, 0.4);
-        }
-    }
-
-    .link {
-        text-decoration: none;
-    }
-    
-`
+  .link {
+    text-decoration: none;
+  }
+`;
 
 const Button = styled.button`
-    height: 44px;
-    width: 100%;
-    background: #3797EF;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
+  height: 44px;
+  width: 100%;
+  background: #3797ef;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: -0.15px;
-    color: #FFFFFF;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.15px;
+  color: #ffffff;
 
-    &:hover {
-        opacity: 0.7;
-    }
-
+  &:hover {
+    opacity: 0.7;
+  }
 `;

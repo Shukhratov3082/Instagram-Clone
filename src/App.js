@@ -1,90 +1,72 @@
-import { Route, Routes, } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import Search from "./components/Search";
+import You from "./components/You";
+import Profile from "./components/Profile";
+import Following from "./components/Following";
 import Login from "./containers/Login";
 import Join from "./containers/Join";
-import Home from "./containers/Home";
-import Search from "./containers/Search";
 import Like from "./containers/Like";
 import Signup from "./containers/Signup";
-import Createpost from "./containers/CreatePost";
-import Profile from "./containers/Profile";
-import EditProfile from "./containers/EditProfile";
-import You from "./components/You";
-import Following from "./components/Following";
-import Loginredirect from "./components/Loginredirect";
-import Privateroute from "./components/Privateroute";
+import Auth from "./containers/Auth";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={
-        <Loginredirect>
-          <Join />
-        </Loginredirect>
-      } />
+      <Route path="/" element={<Join />} />
 
-      <Route path="/login" element={
-        <Loginredirect>
-          <Login />
-        </Loginredirect>
-      } />
+      <Route path="/login" element={<Login />} />
 
-      <Route path="/signup" element={
-        <Loginredirect>
-          <Signup />
-        </Loginredirect>
-      } />
+      <Route path="/signup" element={<Signup />} />
 
-      <Route path="/home" element={
-        <Privateroute>
-          <Home />
-        </Privateroute>
-      } />
+      <Route
+        path="/home"
+        element={
+          <Auth>
+            <Home />
+          </Auth>
+        }
+      />
 
-      <Route path="/search" element={
-        <Privateroute>
-          <Search />
-        </Privateroute>
-      } />
+      <Route path="/search" element={<Search />} />
 
-      <Route path="/create" element={
-        <Privateroute>
-          <Createpost />
-        </Privateroute>
-      } />
+      <Route
+        path="/profile"
+        element={
+          <Auth>
+            <Profile />
+          </Auth>
+        }
+      />
 
-      <Route path="/profile" element={
-        <Privateroute>
-          <Profile />
-        </Privateroute>
-      } />
+      <Route
+        path="/like/*"
+        element={
+          <Auth>
+            <Like />
+          </Auth>
+        }
+      />
 
-      <Route path="/editprofile" element={
-        <Privateroute>
-          <EditProfile />
-        </Privateroute>
-      } />
+      <Route
+        path="/like/following"
+        element={
+          <Auth>
+            <Following />
+          </Auth>
+        }
+      />
 
-      <Route path="/like/*" element={
-        <Privateroute>
-          <Like />
-        </Privateroute>
-      } />
-
-      <Route path='/like/following' element={
-        <Privateroute>
-          <Following />
-        </Privateroute>
-      } />
-
-      <Route path='/like/you' element={
-        <Privateroute>
-          <You />
-        </Privateroute>
-      } />
+      <Route
+        path="/like/you"
+        element={
+          <Auth>
+            <You />
+          </Auth>
+        }
+      />
     </Routes>
-
   );
 }
 
 export default App;
-
