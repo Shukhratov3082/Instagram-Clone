@@ -8,7 +8,7 @@ import { auth } from "../firebase";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  // const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   function AddSignup() {
@@ -34,17 +34,12 @@ const Signup = () => {
           <div className="line"></div>
         </div>
         <form>
-          <input
-            onChange={({ target }) => setUsername(target.value)}
-            placeholder="UserName"
-            type="text"
-          />
+          <input placeholder="UserName" type="text" />
           <input
             onChange={({ target }) => setEmail(target.value)}
             placeholder="Email"
             type="text"
           />
-
           <input
             onChange={({ target }) => setPassword(target.value)}
             placeholder="Password"
