@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import InstagramIcon from "../assets/Instagram Logo.svg";
+import InstagramIcon from "../assets/images/home/Instagram-logo.svg";
 import Avatar from "../assets/avatar1.png";
 import { Link } from "react-router-dom";
 

@@ -1,45 +1,62 @@
 import styled from "styled-components";
-import HomeWhite from "../assets/HomeWhite.svg";
+import Home from "../assets/images/footer/home.svg";
+import HomeActive from "../assets/images/footer/home-active.svg";
 import Like from "../assets/Like.svg";
 import Profile from "../assets/Profile.png";
-import Search from "../assets/Search.svg";
-import Create from "../assets/Create.svg";
+import Search from "../assets/images/footer/search.svg";
+import Video from "../assets/images/footer/video.svg";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const FooterBar = () => {
+  const [isHome, setIsHome] = useState(false);
+  useEffect(() => {
+    const currentHref = window.location.pathname;
+    setIsHome(currentHref === "/home");
+  }, []);
+
   const Images = [
-    { to: "/home", img: HomeWhite },
+    { to: "/home", img: Home, event: isHome },
     { to: "/search", img: Search },
-    { to: "/home", img: Create },
+    { to: "/home", img: Video },
     { to: "/like", img: Like },
     { to: "/profile", img: Profile },
   ];
 
   return (
-    <Menu>
-      {Images.map(({ to, img }) => (
+    <Wrapper>
+      {Images.map(({ to, img, event }) => (
         <div key={Math.random()}>
           <NavLink to={to}>
-            <img src={img} alt="" />
+            <img
+              className="search-active"
+              src={event ? HomeActive : img}
+              alt=""
+              loading="lazy"
+            />
           </NavLink>
         </div>
       ))}
-    </Menu>
+    </Wrapper>
   );
 };
 
 export default FooterBar;
 
-const Menu = styled.div`
+const Wrapper = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 75px);
-  border-top: 1px solid #a1a1a1cd;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0px;
+  position: relative;
+  border-top: 0.5px solid #cfcfcfbb;
+  background-color: #fff;
+  z-index: 10;
   div {
-    width: 75px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
   }
 `;

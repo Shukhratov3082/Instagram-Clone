@@ -20,20 +20,20 @@ const Burger = () => {
 export default Burger;
 
 const StyledBurger = styled.div`
-  width: 30px;
-  height: 30px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
   position: absolute;
-  z-index: 20;
+  right: 20px;
+  z-index: 60;
   cursor: pointer;
   div {
-    width: 100%;
-    height: 4px;
+    width: 28px;
+    height: 3px;
+    margin-top: 6px;
     background-color: ${({ open }) => (open ? "#ccc" : "#333")};
     border-radius: 10px;
-    transform-origin: 1px;
+    transform-origin: 1.5px;
     transition: all 0.3s linear;
     &:nth-child(1) {
       transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};

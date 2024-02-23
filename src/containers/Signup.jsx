@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import InstagramIcon from "../assets/Instagram Logo.svg";
+import Instagram from "../assets/images/home/Instagram-logo.svg";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -23,7 +23,7 @@ const Signup = () => {
   return (
     <Wrapper id="wrapper">
       <Container>
-        <img className="instagram" src={InstagramIcon} alt="" />
+        <img className="instagram" src={Instagram} alt="" />
         <span className="header-text">
           Sign up to see photos and <br /> videos from your friends.
         </span>

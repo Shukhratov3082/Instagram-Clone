@@ -104,6 +104,7 @@ const Ul = styled.ul`
   background-color: #f5f5f5;
   border-left: 2px solid gray;
   user-select: none;
+  z-index: 50;
   .title {
     font-size: 15px;
   }
@@ -152,6 +153,10 @@ const Ul = styled.ul`
       align-items: center;
       gap: 12px;
       cursor: pointer;
+      transition: all .3s ease;
+      &:hover {
+        background-color: #d6d6d6ba;
+      }
     }
   }
 `;

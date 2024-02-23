@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import vektor from "../assets/vektor.svg";
-import logo from "../assets/Instagram Logo.svg";
+import Instagram from "../assets/images/home/Instagram-logo.svg";
 import facebook from "../assets/facebook.svg";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
@@ -28,7 +28,7 @@ const Login = () => {
         <Link to="/">
           <img className="vektor" src={vektor} alt="" />
         </Link>
-        <img className="logo" src={logo} alt="" />
+        <img className="logo" src={Instagram} alt="" />
         <div className="input-container">
           <input
             onChange={({ target }) => setEmail(target.value)}
