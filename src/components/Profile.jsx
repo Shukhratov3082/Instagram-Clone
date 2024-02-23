@@ -9,7 +9,6 @@ import Friends from "../assets/friends.png";
 import Sport from "../assets/sport.png";
 import Design from "../assets/design.png";
 import VideoIcon from "../assets/VideoIcon.svg";
-import image1 from "../assets/design.png";
 import Kontakt from "../assets/Kontakt.svg";
 import FooterBar from "./FooterBar";
 const Profile = () => {
